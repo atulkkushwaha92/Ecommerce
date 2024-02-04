@@ -1,0 +1,127 @@
+2024-01-20 22:28:59,926 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting CommonDataServiceApplication on DESKTOP-API2FGQ with PID 16764 (C:\Users\hp\eclipse-workspace\test_code_ujjval_desai\common-data-service\target\classes started by hp in C:\Users\hp\eclipse-workspace\test_code_ujjval_desai\common-data-service)
+2024-01-20 22:28:59,929 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: prod
+2024-01-20 22:29:00,019 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-01-20 22:29:00,020 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-01-20 22:29:01,413 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-01-20 22:29:01,442 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 19ms. Found 0 JPA repository interfaces.
+2024-01-20 22:29:02,378 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-01-20 22:29:02,406 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2024-01-20 22:29:02,407 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-01-20 22:29:02,407 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.35]
+2024-01-20 22:29:02,533 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-01-20 22:29:02,533 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2513 ms
+2024-01-20 22:29:02,960 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2024-01-20 22:29:02,972 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-01-20 22:29:03,168 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-01-20 22:29:03,268 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-20 22:29:03,322 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-20 22:29:03,420 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.15.Final
+2024-01-20 22:29:03,779 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-01-20 22:29:03,988 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-01-20 22:29:04,297 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-20 22:29:04,309 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-20 22:29:04,479 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-01-20 22:29:04,485 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2024-01-20 22:29:04,515 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2024-01-20 22:29:04,602 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-01-20 22:29:04,607 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2024-01-20 22:29:04,608 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2024-01-20 22:29:04,624 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started CommonDataServiceApplication in 5.366 seconds (JVM running for 6.138)
+2024-01-20 22:29:26,725 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-20 22:29:26,725 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-01-20 22:29:26,740 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8081-exec-1] Completed initialization in 14 ms
+2024-01-20 22:29:26,772 WARN org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] No mapping for GET /ping
+2024-01-20 22:29:45,119 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting CommonDataServiceApplication on DESKTOP-API2FGQ with PID 15212 (C:\Users\hp\eclipse-workspace\test_code_ujjval_desai\common-data-service\target\classes started by hp in C:\Users\hp\eclipse-workspace\test_code_ujjval_desai\common-data-service)
+2024-01-20 22:29:45,121 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: prod
+2024-01-20 22:29:45,197 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-01-20 22:29:45,197 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-01-20 22:29:46,569 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-01-20 22:29:46,605 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 21ms. Found 0 JPA repository interfaces.
+2024-01-20 22:29:47,613 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-01-20 22:29:47,632 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2024-01-20 22:29:47,633 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-01-20 22:29:47,633 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.35]
+2024-01-20 22:29:47,760 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-01-20 22:29:47,760 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2563 ms
+2024-01-20 22:29:48,429 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2024-01-20 22:29:48,440 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-01-20 22:29:48,661 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-01-20 22:29:48,738 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-20 22:29:48,832 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-20 22:29:49,032 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.15.Final
+2024-01-20 22:29:49,338 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-01-20 22:29:49,552 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-01-20 22:29:50,049 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-20 22:29:50,061 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-20 22:29:50,275 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-01-20 22:29:50,283 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2024-01-20 22:29:50,314 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2024-01-20 22:29:50,383 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-01-20 22:29:50,386 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2024-01-20 22:29:50,387 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2024-01-20 22:29:50,405 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started CommonDataServiceApplication in 5.866 seconds (JVM running for 6.561)
+2024-01-20 22:29:52,914 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-20 22:29:52,914 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-01-20 22:29:52,925 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8081-exec-1] Completed initialization in 10 ms
+2024-01-20 22:29:52,953 WARN org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] No mapping for GET /
+2024-01-20 22:29:55,896 WARN org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-2] No mapping for GET /
+2024-01-20 22:30:05,587 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-309] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-20 22:30:05,591 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-309] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-01-20 22:30:05,596 INFO com.zaxxer.hikari.HikariDataSource [Thread-309] HikariPool-1 - Shutdown initiated...
+2024-01-20 22:30:05,622 INFO com.zaxxer.hikari.HikariDataSource [Thread-309] HikariPool-1 - Shutdown completed.
+2024-01-20 22:30:05,801 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting CommonDataServiceApplication on DESKTOP-API2FGQ with PID 15212 (C:\Users\hp\eclipse-workspace\test_code_ujjval_desai\common-data-service\target\classes started by hp in C:\Users\hp\eclipse-workspace\test_code_ujjval_desai\common-data-service)
+2024-01-20 22:30:05,801 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: prod
+2024-01-20 22:30:06,593 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-01-20 22:30:06,597 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 3ms. Found 0 JPA repository interfaces.
+2024-01-20 22:30:06,799 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-01-20 22:30:06,802 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2024-01-20 22:30:06,806 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-01-20 22:30:06,806 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.35]
+2024-01-20 22:30:06,869 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-01-20 22:30:06,869 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1060 ms
+2024-01-20 22:30:07,017 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2024-01-20 22:30:07,021 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2024-01-20 22:30:07,033 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2024-01-20 22:30:07,057 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-20 22:30:07,068 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-20 22:30:07,082 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-01-20 22:30:07,094 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-20 22:30:07,094 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-20 22:30:07,337 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-01-20 22:30:07,342 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2024-01-20 22:30:07,354 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2024-01-20 22:30:07,360 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-01-20 22:30:07,361 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2024-01-20 22:30:07,362 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2024-01-20 22:30:07,367 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started CommonDataServiceApplication in 1.662 seconds (JVM running for 23.523)
+2024-01-20 22:30:07,370 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2024-01-20 22:30:33,114 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [Thread-312] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-20 22:30:33,115 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [Thread-312] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-01-20 22:30:33,116 INFO com.zaxxer.hikari.HikariDataSource [Thread-312] HikariPool-2 - Shutdown initiated...
+2024-01-20 22:30:33,121 INFO com.zaxxer.hikari.HikariDataSource [Thread-312] HikariPool-2 - Shutdown completed.
+2024-01-20 22:30:33,226 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting CommonDataServiceApplication on DESKTOP-API2FGQ with PID 15212 (C:\Users\hp\eclipse-workspace\test_code_ujjval_desai\common-data-service\target\classes started by hp in C:\Users\hp\eclipse-workspace\test_code_ujjval_desai\common-data-service)
+2024-01-20 22:30:33,226 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: prod
+2024-01-20 22:30:33,702 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-01-20 22:30:33,706 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 2ms. Found 0 JPA repository interfaces.
+2024-01-20 22:30:33,826 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-01-20 22:30:33,827 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2024-01-20 22:30:33,827 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2024-01-20 22:30:33,828 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.35]
+2024-01-20 22:30:33,874 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-01-20 22:30:33,875 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 643 ms
+2024-01-20 22:30:33,965 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2024-01-20 22:30:33,967 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Starting...
+2024-01-20 22:30:33,971 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Start completed.
+2024-01-20 22:30:33,975 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-20 22:30:33,985 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2024-01-20 22:30:34,003 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-20 22:30:34,009 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-20 22:30:34,010 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-20 22:30:34,224 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-01-20 22:30:34,227 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2024-01-20 22:30:34,239 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2024-01-20 22:30:34,246 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-01-20 22:30:34,247 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2024-01-20 22:30:34,247 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2024-01-20 22:30:34,251 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started CommonDataServiceApplication in 1.077 seconds (JVM running for 50.407)
+2024-01-20 22:30:34,252 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
