@@ -13,8 +13,6 @@ services:
         - ./mysql-db/user.sql:/docker-entrypoint-initdb.d/user.sql
     ports:
       - 3306:3306
-    networks:
-      - spring-cloud-microservices
       
   react-ui:
     build:
@@ -36,8 +34,3 @@ services:
       - /usr/src/app/node_modules
     depends_on:
       - mysql-db
-    networks:
-      - spring-cloud-microservices
-networks:
-  spring-cloud-microservices:
-    external: true
