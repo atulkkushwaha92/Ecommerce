@@ -43,4 +43,4 @@ services:
       - ecommerce-network  
 networks:
   ecommerce-network:
-    external: true      
+    driver: bridge      
