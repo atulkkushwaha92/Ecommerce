@@ -45,7 +45,7 @@ services:
   authentication-service:
     build:
       context: .
-      dockerfile: ./server/common-data-service/Dockerfile-dev
+      dockerfile: ./server/authentication-service/Dockerfile-dev
     container_name: authentication-service-container
     restart: always
     depends_on:
