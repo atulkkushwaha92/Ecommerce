@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mysql-db:
-    image: mysql:5.7
+    image: mysql:8
     container_name: mysql-db-container
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -13,7 +13,9 @@ services:
         - ./mysql-db/user.sql:/docker-entrypoint-initdb.d/user.sql
     ports:
       - 3306:3306
-
+    networks:
+      - ecommerce-network  
+      
   common-data-service:
     build:
       context: .
@@ -23,7 +25,7 @@ services:
     depends_on:
       - mysql-db
     environment:
-      - DB_HOST=${DB_HOST}
+      - DB_HOST=mysql-db
       - DB_PORT=${DB_PORT}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
@@ -37,3 +39,8 @@ services:
       - ${COMMON_DATA_SERVICE_PORT}
     ports:
       - ${COMMON_DATA_SERVICE_PORT}:${COMMON_DATA_SERVICE_PORT}
+    networks:
+      - ecommerce-network  
+networks:
+  ecommerce-network:
+    external: true      
