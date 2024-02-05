@@ -40,7 +40,33 @@ services:
     ports:
       - ${COMMON_DATA_SERVICE_PORT}:${COMMON_DATA_SERVICE_PORT}
     networks:
+      - ecommerce-network
+
+  authentication-service:
+    build:
+      context: .
+      dockerfile: ./server/common-data-service/Dockerfile-dev
+    container_name: authentication-service-container
+    restart: always
+    depends_on:
+      - mysql-db
+    environment:
+      - DB_HOST=mysql-db
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_SCHEMA=${DB_SCHEMA}
+      - ACTIVE_PROFILE=${ACTIVE_PROFILE}
+      - PORT=${AUTHENTICATION_SERVICE_PORT}
+    links:
+      - mysql-db:mysql
+    expose:
+      - ${AUTHENTICATION_SERVICE_PORT}
+    ports:
+      - ${AUTHENTICATION_SERVICE_PORT}:${AUTHENTICATION_SERVICE_PORT}
+    networks:
       - ecommerce-network  
+      
 networks:
   ecommerce-network:
     driver: bridge      
