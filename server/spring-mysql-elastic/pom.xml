@@ -96,7 +96,7 @@
                             <goal>repackage</goal>
                         </goals>
                         <configuration>
-                            <mainClass>com.example.springmysqlelastic.SpringMysqlElasticApplication</mainClass>
+                            <mainClass>com.nagp.elasticsearch.SpringMysqlElasticApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
