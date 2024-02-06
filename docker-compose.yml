@@ -66,6 +66,28 @@ services:
       - ${AUTHENTICATION_SERVICE_PORT}:${AUTHENTICATION_SERVICE_PORT}
     networks:
       - ecommerce-network  
+
+  react-ui:
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+    container_name: react-service-container
+    stdin_open: true
+    restart: always
+    expose:
+      - ${REACT_APP_PORT}
+    ports:
+      - ${REACT_APP_PORT}:${REACT_APP_PORT}
+    environment:
+      - REACT_APP_COMMON_DATA_SERVICE_PORT=${COMMON_DATA_SERVICE_PORT}
+      - REACT_APP_ENVIRONMENT=${REACT_APP_ENVIRONMENT}
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mysql-db
+    networks:
+      - ecommerce-network
       
 networks:
   ecommerce-network:
