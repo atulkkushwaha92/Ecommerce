@@ -125,7 +125,7 @@ const NavBar = props => {
         setAddToCartValuesFromCookie()
 
         // set default search suggestions
-        props.setDefaultSearchSuggestions()
+       // props.setDefaultSearchSuggestions()
 
         // eslint-disable-next-line
     }, [isSignedIn, tabsDataReducer]);

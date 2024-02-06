@@ -66,7 +66,52 @@ services:
       - ${AUTHENTICATION_SERVICE_PORT}:${AUTHENTICATION_SERVICE_PORT}
     networks:
       - ecommerce-network  
+      
+  elastic-service:
+    build:
+      context: .
+      dockerfile: ./server/spring-mysql-elastic/Dockerfile
+    container_name: spring-mysql-elastic-container
+    restart: always
+    depends_on:
+      - mysql-db
+    environment:
+      - DB_HOST=mysql-db
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DB_SCHEMA=${DB_SCHEMA}
+      - ACTIVE_PROFILE=${ACTIVE_PROFILE}
+      - PORT=${SEARCH_SUGGESTION_SERVICE_PORT}
+      - CLUSTER_NAME=elastic
+      - CLUSTER_NODES=elastic:9300
+    links:
+      - mysql-db:mysql
+    expose:
+      - ${SEARCH_SUGGESTION_SERVICE_PORT}
+    ports:
+      - ${SEARCH_SUGGESTION_SERVICE_PORT}:${SEARCH_SUGGESTION_SERVICE_PORT}
+    networks:
+      - ecommerce-network
 
+  elasticsearch:
+    image: elastic/elasticsearch:6.2.2
+    container_name: elastic
+    hostname: elastic
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=elastic
+      - network.host=0.0.0.0
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - cluster.name=elastic
+      - discovery.type=single-node
+        
   react-ui:
     build:
       context: .
@@ -92,3 +137,7 @@ services:
 networks:
   ecommerce-network:
     driver: bridge      
+
+volumes:
+  esdata:
+    driver: local

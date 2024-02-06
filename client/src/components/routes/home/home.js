@@ -27,31 +27,26 @@ const Home = props => {
     // Main screen API is loaded during Component Did mount
     useEffect(() => {
         log.info("[Home]: component did mount.")
-        props.setDefaultSearchSuggestions()
-        authServiceAPI.post('/authenticate').catch(err => {
-        })
-        if (process.env.REACT_APP_PAYMENT_SERVICE_URL) {
-            axios({
-                method: 'post',
-                url: `${process.env.REACT_APP_PAYMENT_SERVICE_URL}/payment`,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                data: "xyz"
-            }).catch(err => {
-            })
-        }
+
+        //props.setDefaultSearchSuggestions()
+        //authServiceAPI.post('/authenticate').catch(err => {
+        //})
         ///////////////////////////////////////////////////////////
+
+
         if (!homeAPIData.hasOwnProperty("data")) {
             props.getDataViaAPI(LOAD_HOME_PAGE, HOME_PAGE_DATA_API, null, false);
         }
+
         // eslint-disable-next-line
     }, [homePageDataReducer]);
 
     // we will be showing spinner till we get the data via API
     if (homeAPIData.isLoading) {
         log.info("[Home]: loading")
+        return <Spinner/>
     } else {
+
         // check if we got the data from the API
         if (homeAPIData.hasOwnProperty("data")
             && Object.entries(homeAPIData.data).length !== HOME_PAGE_API_OBJECT_LEN) {
@@ -59,10 +54,12 @@ const Home = props => {
             log.info(`[Home]: homeAPIData.data length didn't matched` +
                 `actual length = ${Object.entries(homeAPIData.data).length},` +
                 `expected length = ${HOME_PAGE_API_OBJECT_LEN}`)
+
             // if we can't get the data then the front end
             // didn't use the API correctly.
             return <BadRequest/>
-           // if statusCode exist in the object then
+
+            // if statusCode exist in the object then
             // we are sure that something went wrong at server side while
             // fetching the API
         } else if (homeAPIData.hasOwnProperty('statusCode')) {
@@ -86,4 +83,5 @@ const Home = props => {
         </Dimmer.Dimmable>
     )
 }
-export default connect(null, {getDataViaAPI, setDefaultSearchSuggestions})(Home);
+
+export default connect(null, {getDataViaAPI})(Home);
