@@ -6,7 +6,7 @@ on:
 
 env:
   #
-  WEBSITE_IMAGE: ghcr.io/$(echo $GITHUB_REPOSITORY | tr '[:upper:]' '[:lower:]')/client
+  WEBSITE_IMAGE: ghcr.io/atulkkushwaha92/ecommerce/client
   REGISTRY: ghcr.io
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
           docker-compose -f docker-compose.yml build
       - name: Push images
         run: |
-          docker push ghcr.io/atullkushwaha92/ecommerce_react-ui:latest
+           docker push ${{ env.WEBSITE_IMAGE }} || true
   checking-secrets:
     name: Checking secrets
     runs-on: ubuntu-latest
