@@ -107,7 +107,6 @@ services:
       - http.host=0.0.0.0
       - transport.host=elastic
       - network.host=0.0.0.0
-      - transport.host=elastic
       - xpack.security.enabled=false
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - cluster.name=elastic
