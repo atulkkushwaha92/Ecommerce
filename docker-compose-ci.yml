@@ -1,0 +1,16 @@
+version: '3'
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      cache_from:
+        - '${WEBSITE_IMAGE}'
+    image: '${WEBSITE_IMAGE}'
+    ports:
+      - '3000:3000'
+    volumes:
+      - client:./client/build/ # build files will be added at this directory !!!
+
+volumes:
+  client:
