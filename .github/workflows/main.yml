@@ -34,7 +34,7 @@ jobs:
           docker-compose -f docker-compose.yml build
       - name: Push images
         run: |
-          docker push ${{ env.WEBSITE_IMAGE }}
+          docker push ghcr.io/atullkushwaha92/ecommerce_react-ui:latest
   checking-secrets:
     name: Checking secrets
     runs-on: ubuntu-latest
