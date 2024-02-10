@@ -1,7 +1,7 @@
 # Docker multi-stage build
 
 # 1. Building the App with Maven
-FROM maven:3-jdk-11
+FROM maven:3-jdk-8
 
 ADD ./server/spring-mysql-elastic /spring_mysql_elastic_staging
 
@@ -14,7 +14,7 @@ RUN ls -l
 RUN mvn clean install -DskipTests
 
 # 2. Just using the build artifact and then removing the build-container
-FROM openjdk:11-jdk
+FROM openjdk:8-jre-alpine
 
 VOLUME /tmp
 
