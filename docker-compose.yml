@@ -104,14 +104,14 @@ services:
     volumes:
       - esdata:/usr/share/elasticsearch/data
     environment:
-      - http.host=0.0.0.0
       - transport.host=elastic
-      - network.host=0.0.0.0
       - xpack.security.enabled=false
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - cluster.name=elastic
       - discovery.type=single-node
-        
+    networks:
+      - ecommerce-network
+      
   react-ui:
     build:
       context: .
