@@ -57,7 +57,7 @@ jobs:
         run: docker login -u ${{secrets.DOCKER_USERNAME }} -p ${{secrets.DOCKER_PASSWORD }} 
       - name: Set permissions for private key
         run: |
-          echo "${{ secrets.PERSONAL_ACCESS_TOKEN }}" > key.pem
+          echo "${{ secrets.PRIVATE_KEY }}" > key.pem
           chmod 600 key.pem
       - name: Docker Pull
         run: |
