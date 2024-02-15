@@ -22,7 +22,6 @@ jobs:
         run: |
           echo "WEBSITE_IMAGE=$(echo ${{env.WEBSITE_IMAGE}} )" >> $GITHUB_ENV
       - name: Log in to Docker
-        env:
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - name: Build images
         run: |
