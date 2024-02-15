@@ -119,6 +119,7 @@ services:
       context: .
       dockerfile: ./client/Dockerfile
     container_name: react-service-container
+    image: atulkkushwaha92/ecommerce-react-ui
     stdin_open: true
     restart: always
     expose:
