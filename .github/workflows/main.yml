@@ -52,7 +52,6 @@ jobs:
     if: needs.checking-secrets.outputs.secret_key_exists == 'true'
     steps:
       - name: executing remote ssh commands using ssh key
-        uses: actions/checkout@v2
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
