@@ -54,10 +54,7 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v2
       - name:  Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-            username: ${{ env.DOCKER_USERNAME }}
-            password: ${{ env.DOCKER_PASSWORD }}
+        run: docker login -u ${{secrets.DOCKER_USERNAME }} -p ${{secrets.DOCKER_PASSWORD }} 
       - name: Set permissions for private key
         run: |
           echo "${{ secrets.PERSONAL_ACCESS_TOKEN }}" > key.pem
@@ -65,7 +62,7 @@ jobs:
       - name: Docker Pull
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@ec2-50-19-178-11.compute-1.amazonaws.com 'sudo docker pull ${{ env.WEBSITE_IMAGE }}:latest'
-      - name: Docker Pull
+      - name:  Stop running container
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@ec2-50-19-178-11.compute-1.amazonaws.com 'sudo docker stop ecommerce-react-ui || true'
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@ec2-50-19-178-11.compute-1.amazonaws.com 'sudo docker rm ecommerce-react-ui || true'
