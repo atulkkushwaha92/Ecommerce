@@ -52,31 +52,23 @@ jobs:
     if: needs.checking-secrets.outputs.secret_key_exists == 'true'
     steps:
       - name: Checkout main
-        uses: actions/checkout@v3
-
-      - name: Add environment variables to .env
+        uses: actions/checkout@v2
+      - name:  Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+            username: ${{ env.DOCKER_USERNAME }}
+            password: ${{ env.DOCKER_PASSWORD }}
+      - name: Set permissions for private key
         run: |
-          echo WEBSITE_IMAGE=${{ env.WEBSITE_IMAGE }} >> .env
-          echo NAMESPACE=${{ secrets.NAMESPACE }} >> .env
-          echo PERSONAL_ACCESS_TOKEN=${{ secrets.PERSONAL_ACCESS_TOKEN }} >> .env
-      - name: Add the private SSH key to the ssh-agent
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+          echo "${{ secrets.PERSONAL_ACCESS_TOKEN }}" > key.pem
+          chmod 600 key.pem
+      - name: Docker Pull
         run: |
-          mkdir -p ~/.ssh
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-add - <<< "${{ secrets.PRIVATE_KEY }}"
-      - name: Deploy images on AWS EC2
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@ec2-50-19-178-11.compute-1.amazonaws.com 'sudo docker pull ${{ env.WEBSITE_IMAGE }}:latest'
+      - name: Docker Pull
         run: |
-          scp -o StrictHostKeyChecking=no -r ./.env ./docker-compose.ci.yml ${{secrets.AWS_HOST_USER}}@${{ secrets.AWS_EC2_IP_ADDRESS }}:
-          ssh -o StrictHostKeyChecking=no ${{secrets.AWS_HOST_USER}}@${{ secrets.AWS_EC2_IP_ADDRESS }} << EOF
-              docker-compose down --rmi all -v 
-              docker login ghcr.io -u ${{secrets.NAMESPACE}} -p ${{secrets.PERSONAL_ACCESS_TOKEN}}
-              docker pull $WEBSITE_IMAGE
-              docker-compose --env-file=.env -f docker-compose.ci.yml up -d
-              docker logout
-          EOF
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@ec2-50-19-178-11.compute-1.amazonaws.com 'sudo docker stop ecommerce-react-ui || true'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@ec2-50-19-178-11.compute-1.amazonaws.com 'sudo docker rm ecommerce-react-ui || true'
+      - name: Run new container
+        run: |
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@ec2-50-19-178-11.compute-1.amazonaws.com 'sudo docker run -d --name ecommerce-react-ui -p 3000:3000 ${{ env.WEBSITE_IMAGE }}:latest'
