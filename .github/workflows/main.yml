@@ -6,7 +6,7 @@ on:
 
 env:
   #
-  WEBSITE_IMAGE: atulkkushwaha92/ecommerce-ui-client
+  WEBSITE_IMAGE: atulkkushwaha92/ecommerce_react-ui
   REGISTRY: ghcr.io
 
 jobs:
