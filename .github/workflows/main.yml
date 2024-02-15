@@ -52,13 +52,12 @@ jobs:
     if: needs.checking-secrets.outputs.secret_key_exists == 'true'
     steps:
       - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ec2-50-19-178-11.compute-1.amazonaws.com
-          username: ec2-user
-          key: ${{ secrets.KEY }}
-          port: 22
-          script: whoami
+        uses: actions/checkout@v2
+        env:
+            PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@50.19.178.11'
       - name: Checkout main
         uses: actions/checkout@v2
       - name:  Login to Docker Hub
