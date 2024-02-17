@@ -74,4 +74,4 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@3.80.187.214 'sudo docker rm ecommerce-react-ui || true'
       - name: Run new container
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@3.80.187.214 'sudo docker-compose -f ./Ecommerce/docker-compose.ci.yml up -d'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@3.80.187.214 'sudo docker-compose -f ./Ecommerce/docker-compose-ci.yml up -d'
