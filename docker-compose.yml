@@ -114,7 +114,7 @@ services:
     networks:
       - ecommerce-network
       
-  react-ui:
+  ecommerce-react-ui:
     build:
       context: .
       dockerfile: ./client/Dockerfile

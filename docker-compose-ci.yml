@@ -1,6 +1,6 @@
 version: '3'
 services:
-  client:
+  ecommerce-react-ui:
     build:
       context: .
       dockerfile: ./client/Dockerfile
@@ -17,5 +17,11 @@ services:
     volumes:
       - ./client:/usr/src/app
       - /usr/src/app/node_modules
+    networks:
+      - ecommerce-network      
+networks:
+  ecommerce-network:
+    driver: bridge
+    
 volumes:
   client:
