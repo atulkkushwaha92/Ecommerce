@@ -5,8 +5,13 @@ services:
       context: .
       dockerfile: ./client/Dockerfile
     image: atulkkushwaha92/ecommerce-react-ui
+    container_name: ecommerce-react-ui
+    expose:
+      - 3000
     environment:
       - WEBSITE_IMAGE=atulkkushwaha92/ecommerce-react-ui
+      - REACT_APP_COMMON_DATA_SERVICE_PORT=${COMMON_DATA_SERVICE_PORT}
+      - REACT_APP_ENVIRONMENT=${REACT_APP_ENVIRONMENT}
     ports:
       - '3000:3000'
     volumes:
