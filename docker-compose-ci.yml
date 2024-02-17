@@ -2,8 +2,8 @@ version: '3'
 services:
   client:
     build:
-      context: ./client
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./client/Dockerfile
     image: atulkkushwaha92/ecommerce-react-ui
     ports:
       - '3000:3000'
