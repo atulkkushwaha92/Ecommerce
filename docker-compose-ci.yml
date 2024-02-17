@@ -4,11 +4,11 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
-    image: '${WEBSITE_IMAGE}'
+    image: atulkkushwaha92/ecommerce-react-ui
     ports:
       - '3000:3000'
     volumes:
-      - client:./client/build/ # build files will be added at this directory !!!
-
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
 volumes:
   client:
