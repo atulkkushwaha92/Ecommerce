@@ -6,6 +6,8 @@ services:
       dockerfile: ./client/Dockerfile
     image: atulkkushwaha92/ecommerce-react-ui
     ports:
+    environment:
+      - WEBSITE_IMAGE=atulkkushwaha92/ecommerce-react-ui
       - '3000:3000'
     volumes:
       - ./client:/usr/src/app
