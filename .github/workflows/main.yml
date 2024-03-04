@@ -70,7 +70,7 @@ jobs:
       - name:  Stop running container
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker stop ecommerce-react-ui || true'
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker rm ecommerce-react-ui  -v|| true'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker rm ecommerce-react-ui || true'
       - name: Run new container
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker-compose -f ./Ecommerce/docker-compose-ci.yml up -d'
