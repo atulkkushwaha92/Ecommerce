@@ -16,8 +16,11 @@ jobs:
 
     steps:
       - name: checkout main
-        uses: actions/checkout@v3
-
+      - uses: GuillaumeFalourd/clone-github-repo-action@v3
+        with:
+          owner: atulkkushwaha92
+          repository: Ecommerce
+          path-to-clone: /home/ec2-user/Ecommerce/
       - name: Set environment variables to .env
         run: |
           echo "WEBSITE_IMAGE=$(echo ${{env.WEBSITE_IMAGE}} )" >> $GITHUB_ENV
