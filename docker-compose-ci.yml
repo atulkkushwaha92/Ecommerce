@@ -17,7 +17,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./client:./client/build/
+      - ./client:/usr/src/app
       - /usr/src/app/node_modules
     networks:
       - ecommerce-network      
