@@ -1,9 +1,6 @@
 version: '3'
 services:
   ecommerce-react-ui:
-    build:
-      context: .
-      dockerfile: ./client/Dockerfile
     image: atulkkushwaha92/ecommerce-react-ui
     stdin_open: true
     restart: always
