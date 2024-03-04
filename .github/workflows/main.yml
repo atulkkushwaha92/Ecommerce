@@ -23,6 +23,9 @@ jobs:
           echo "WEBSITE_IMAGE=$(echo ${{env.WEBSITE_IMAGE}} )" >> $GITHUB_ENV
       - name: Log in to Docker
         run: docker login -u ${{secrets.DOCKER_USERNAME }} -p ${{secrets.DOCKER_PASSWORD }} 
+      - name: Pull images
+        run: |
+          docker pull ${{ env.WEBSITE_IMAGE }} || true
       - name: Build images
         run: |
           docker-compose -f docker-compose-ci.yml build --no-cache
@@ -74,4 +77,4 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker rm ecommerce-react-ui  -v|| true'
       - name: Run new container
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker-compose -f ./Ecommerce/docker-compose-ci.yml up -d'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker-compose -f ./Ecommerce/docker-compose-prod.yml up -d'
