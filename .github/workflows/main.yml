@@ -15,7 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout main
       - uses: GuillaumeFalourd/clone-github-repo-action@v3
         with:
           owner: atulkkushwaha92
