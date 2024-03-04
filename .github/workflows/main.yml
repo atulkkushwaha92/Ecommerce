@@ -59,7 +59,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@100.24.48.189
-          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@100.24.48.189 'cd /Ecommerce'
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@100.24.48.189 'cd Ecommerce/'
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@100.24.48.189 'git pull origin https://github.com/atulkkushwaha92/Ecommerce.git'
       - name: Checkout main
         uses: actions/checkout@v2
