@@ -22,9 +22,6 @@ jobs:
           echo "WEBSITE_IMAGE=$(echo ${{env.WEBSITE_IMAGE}} )" >> $GITHUB_ENV
       - name: Log in to Docker
         run: docker login -u ${{secrets.DOCKER_USERNAME }} -p ${{secrets.DOCKER_PASSWORD }} 
-      - name: Pull images
-        run: |
-          docker pull ${{ env.WEBSITE_IMAGE }} || true
       - name: Build images
         run: |
           docker-compose -f docker-compose-ci.yml build --no-cache
@@ -58,8 +55,8 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@100.24.48.189
-          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@100.24.48.189 'cd Ecommerce/ && git pull origin https://github.com/atulkkushwaha92/Ecommerce.git master'
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@54.209.218.169
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@54.209.218.169 'cd Ecommerce/ && git pull origin https://github.com/atulkkushwaha92/Ecommerce.git main'
       - name: Checkout main
         uses: actions/checkout@v2
       - name:  Login to Docker Hub
@@ -70,11 +67,11 @@ jobs:
           chmod 600 key.pem
       - name: Docker Pull
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker pull ${{ env.WEBSITE_IMAGE }}:latest'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker pull ${{ env.WEBSITE_IMAGE }}:latest'
       - name:  Stop running container
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker stop ecommerce-react-ui || true'
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker rm ecommerce-react-ui  -v|| true'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker stop ecommerce-react-ui || true'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker rm ecommerce-react-ui  -v|| true'
       - name: Run new container
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker-compose -f ./Ecommerce/docker-compose-prod.yml up -d'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker-compose -f ./Ecommerce/docker-compose-prod.yml up -d'
