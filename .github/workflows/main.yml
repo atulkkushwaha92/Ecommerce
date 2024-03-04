@@ -55,7 +55,7 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@54.209.218.169
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@54.242.127.62
       - name: Checkout main
         uses: actions/checkout@v2
       - name:  Login to Docker Hub
@@ -66,11 +66,11 @@ jobs:
           chmod 600 key.pem
       - name: Docker Pull
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker pull ${{ env.WEBSITE_IMAGE }}:latest'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.242.127.62 'sudo docker pull ${{ env.WEBSITE_IMAGE }}:latest'
       - name:  Stop running container
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker stop ecommerce-react-ui || true'
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker rm ecommerce-react-ui || true'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.242.127.62 'sudo docker stop ecommerce-react-ui || true'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.242.127.62 'sudo docker rm ecommerce-react-ui || true'
       - name: Run new container
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.209.218.169 'sudo docker-compose -f ./Ecommerce/docker-compose-ci.yml up -d'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.242.127.62 'sudo docker-compose -f ./Ecommerce/docker-compose-ci.yml up -d'
