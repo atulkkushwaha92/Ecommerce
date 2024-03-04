@@ -1,6 +1,9 @@
 version: '3'
 services:
   ecommerce-react-ui:
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
     image: atulkkushwaha92/ecommerce-react-ui
     stdin_open: true
     restart: always
@@ -14,7 +17,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./client:/usr/src/app
+      - ./client:./client/build/
       - /usr/src/app/node_modules
     networks:
       - ecommerce-network      
