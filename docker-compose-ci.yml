@@ -6,6 +6,7 @@ services:
       dockerfile: ./client/Dockerfile
     image: atulkkushwaha92/ecommerce-react-ui
     stdin_open: true
+    restart: always
     container_name: ecommerce-react-ui
     expose:
       - 3000
