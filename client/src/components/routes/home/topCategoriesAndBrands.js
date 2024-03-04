@@ -60,7 +60,7 @@ const TopCategoriesAndBrands = () => {
 
     return (
         <>
-            {renderCategoryAndBrandsList("1245", homeAPIData.data.apparels, queryType.apparel)}
+            {renderCategoryAndBrandsList("124522", homeAPIData.data.apparels, queryType.apparel)}
         </>
     )
 };

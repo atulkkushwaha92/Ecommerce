@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY ./client/package*.json ./
-
+RUN git pull https://github.com/atulkkushwaha92/Ecommerce.git
 RUN npm install
 
 # Bundle app source
