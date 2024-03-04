@@ -15,14 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: GuillaumeFalourd/clone-github-repo-action@v3
-        with:
-          owner: atulkkushwaha92
-          repository: Ecommerce
-          path-to-clone: /home/ec2-user/Ecommerce/
-      - run: |
-          cd /home/ec2-user/Ecommerce/
-          ls -lha
+      - name: checkout main
+        uses: actions/checkout@v3
       - name: Set environment variables to .env
         run: |
           echo "WEBSITE_IMAGE=$(echo ${{env.WEBSITE_IMAGE}} )" >> $GITHUB_ENV
@@ -65,6 +59,8 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@100.24.48.189
+          cd Ecommerce/
+          git pull https://github.com/atulkkushwaha92/Ecommerce.git
       - name: Checkout main
         uses: actions/checkout@v2
       - name:  Login to Docker Hub
