@@ -25,7 +25,7 @@ jobs:
         run: docker login -u ${{secrets.DOCKER_USERNAME }} -p ${{secrets.DOCKER_PASSWORD }} 
       - name: Build images
         run: |
-          docker-compose -f docker-compose.yml build
+          docker-compose -f docker-compose-ci.yml build
       - name: Push images
         run: |
            docker push ${{ env.WEBSITE_IMAGE }} || true
@@ -71,7 +71,7 @@ jobs:
       - name:  Stop running container
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker stop ecommerce-react-ui || true'
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker rm ecommerce-react-ui || true'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker rm ecommerce-react-ui  -v|| true'
       - name: Run new container
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@100.24.48.189 'sudo docker-compose -f ./Ecommerce/docker-compose-ci.yml up -d'
