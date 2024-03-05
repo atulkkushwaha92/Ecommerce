@@ -55,9 +55,17 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@54.242.127.62
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@54.235.46.89
       - name: Checkout main
         uses: actions/checkout@v2
+        
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main      
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          REMOTE_HOST: "54.235.46.89"
+          REMOTE_HOST: "ec2-user"
+          TARGET: "/home/ec2-user/Ecommerce"
       - name:  Login to Docker Hub
         run: docker login -u ${{secrets.DOCKER_USERNAME }} -p ${{secrets.DOCKER_PASSWORD }} 
       - name: Set permissions for private key
@@ -66,11 +74,11 @@ jobs:
           chmod 600 key.pem
       - name: Docker Pull
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.242.127.62 'sudo docker pull ${{ env.WEBSITE_IMAGE }}:latest'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.235.46.89 'sudo docker pull ${{ env.WEBSITE_IMAGE }}:latest'
       - name:  Stop running container
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.242.127.62 'sudo docker stop ecommerce-react-ui || true'
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.242.127.62 'sudo docker rm ecommerce-react-ui || true'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.235.46.89 'sudo docker stop ecommerce-react-ui || true'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.235.46.89 'sudo docker rm ecommerce-react-ui || true'
       - name: Run new container
         run: |
-          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.242.127.62 'sudo docker-compose -f ./Ecommerce/docker-compose-ci.yml up -d'
+          ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@54.235.46.89 'sudo docker-compose -f ./Ecommerce/docker-compose-ci.yml up -d'
