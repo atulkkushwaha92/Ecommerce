@@ -64,7 +64,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           REMOTE_HOST: "54.235.46.89"
-          REMOTE_HOST: "ec2-user"
+          REMOTE_USER: "ec2-user"
           TARGET: "/home/ec2-user/Ecommerce"
       - name:  Login to Docker Hub
         run: docker login -u ${{secrets.DOCKER_USERNAME }} -p ${{secrets.DOCKER_PASSWORD }} 
